@@ -18,9 +18,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 21
+          cache: yarn
       - name: Install Dependencies
+        run: yarn install
+      - name: Build Site
         run: |
-          git s-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
+          git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
       - name: Build Site
         run: |
           export TZ='Asia/Shanghai'
