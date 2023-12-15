@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 21
+      - name: Show npm version
         run: npm -v
       - name: Install Dependencies
         run: yarn install
