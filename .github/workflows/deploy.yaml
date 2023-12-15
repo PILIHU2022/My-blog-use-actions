@@ -19,8 +19,9 @@ jobs:
         with:
           node-version: 21
       - name: Install Dependencies
-        run: npm install
-        run: npm install --save hexo-cli
+        run: 
+          npm install
+          npm install --save hexo-cli
       - name: Copy my posts
         run: 
           mkdir -P ./source/{_posts,categories,tags}
