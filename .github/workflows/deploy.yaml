@@ -11,9 +11,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
       - name: Use Node.js 21
         uses: actions/setup-node@v3
         with:
