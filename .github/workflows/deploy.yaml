@@ -21,7 +21,6 @@ jobs:
       - name: Install Dependencies
         run: 
           npm install
-          npm install --save hexo-cli
       - name: Copy my posts
         run: 
           mkdir -p ./source/{_posts,categories,tags};
@@ -36,14 +35,14 @@ jobs:
         run: |
           export TZ='Asia/Shanghai'
           yarn build
-      - name: Deploy to My Github Pages
-        run:
-          hexo clean && hexo g && hexo d
-      # - name: Deploy to Github Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with: 
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./public
+      # - name: Deploy to My Github Pages
+      #   run:
+      #     hexo clean && hexo g && hexo d
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
 
       # - name: Setup Deploy Private Key
       #   env: 
