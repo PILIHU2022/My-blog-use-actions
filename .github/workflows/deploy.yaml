@@ -21,13 +21,13 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn install
-      - name: Build Site
+      - name: Fix File Modify Date
         run: |
           git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
       - name: Build Site
         run: |
           export TZ='Asia/Shanghai'
-          hexo clean && hexo g && hexo d
+          yarn build
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with: 
