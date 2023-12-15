@@ -28,7 +28,7 @@ jobs:
           cp ./*.md ./source/_posts;
           cp ./categories/index.md ./source/categories;
           cp ./tags/index.md ./source/tags;
-          cp ./_config.*.yml ./;
+          cp -f ./_config.*.yml ./;
       - name: Fix File Modify Date
         run: |
           git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
