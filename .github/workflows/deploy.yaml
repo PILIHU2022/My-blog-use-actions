@@ -24,7 +24,7 @@ jobs:
           npm install --save hexo-cli
       - name: Copy my posts
         run: 
-          mkdir -P ./source/{_posts,categories,tags}
+          mkdir -p ./source/{_posts,categories,tags}
           cp ./*.md ./source/_posts
           cp ./categories/index.md ./source/categories
           cp ./tags/index.md ./source/tags
