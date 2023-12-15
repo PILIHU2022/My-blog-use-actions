@@ -2,8 +2,8 @@ name: My blog Deploy
 
 on:
   push:
-  branches:
-    - main
+    branches:
+      - main
 
 jobs:
   permissions:
