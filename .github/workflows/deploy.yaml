@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 21
-          cache: yarn
+        run: npm -v
       - name: Install Dependencies
         run: yarn install
       - name: Fix File Modify Date
